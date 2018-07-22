@@ -2,16 +2,26 @@
 #include <GLFW/glfw3.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <iostream>
 
+/*
+ * execute this function is an error is encountered
+ */
 static void error_callback(int error, const char* description) {
-    fprintf(stderr, "Error: %s\n", description);
+    std::cerr << "Error: "<< description << std::endl;
 }
 
+/*
+ * execute this function every time a key is pressed
+ */
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
     if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
         glfwSetWindowShouldClose(window, GLFW_TRUE);
 }
 
+/*
+ * WinMain enables us to launch a Windows application that immediately returns to the prompt
+ */
 INT WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine, INT nCmdShow) {
 
 	// create pointer to new window
@@ -54,7 +64,10 @@ INT WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR lpCmdLine, INT nC
         glViewport(0, 0, width, height);
 
         // clear the buffer
+        glClearColor(1.0f, 1.0f, 1.0f, 1.0f); // white background
         glClear(GL_COLOR_BUFFER_BIT);
+
+        // add draw calls
 
         // swap buffers
         glfwSwapBuffers(window);
