@@ -1,3 +1,4 @@
+#!python2
 #
 # download_dep.py
 #
