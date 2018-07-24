@@ -6,9 +6,11 @@ This repository contains the source code to build graphical applications in Wind
 ## Prerequisite software
 * [CMake](https://cmake.org/download/)
 * [Microsoft Visual Studio Community Edition](https://visualstudio.microsoft.com/downloads/)
-* [Qt Creator (for the "jom" tool)](https://www.qt.io/download)
 * [Git](https://git-scm.com/download/win)
 * [Python](https://www.python.org/downloads/)
+
+## Optionally
+* [Qt Creator (for the "jom" tool)](https://www.qt.io/download)
 
 ## Dependencies
 * GLFW
@@ -26,5 +28,16 @@ Create a build directory and execute CMake
 mkdir build
 cd build
 cmake ..\src -G "NMake Makefiles"
+```
+
+To compile, you can either use `nmake` or `jom`. The former can only utilize a single core to build the program, but that is fine since we have not many files. If you want to use all your CPU cores, you can use `jom`.
+
+```
+nmake
+```
+
+or for parallel compilation (change the 9 for the total number of threads + 1)
+
+```
 C:\Qt\Tools\QtCreator\bin\jom.exe -j9
 ```
