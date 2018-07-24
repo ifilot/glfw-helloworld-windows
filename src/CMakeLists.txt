@@ -41,7 +41,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}
 
 # Add sources
 file(GLOB_RECURSE SOURCES "*.cpp")
-add_executable(glfw-helloworld-windows WIN32 ${SOURCES})
+add_executable(glfw-helloworld-windows ${SOURCES})
 
 # Link libraries
 target_link_libraries(glfw-helloworld-windows
